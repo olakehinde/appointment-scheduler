@@ -14,7 +14,9 @@ class AppointmentsController extends Controller
      */
     public function index()
     {
-        //
+        $appointments = Appointment::all();
+
+        return view('appointments.index', compact('appointments'));
     }
 
     /**
@@ -35,7 +37,9 @@ class AppointmentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Appointment::create($request->all());
+        
+        return redirect()->route('appointments.index');
     }
 
     /**
