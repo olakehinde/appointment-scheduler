@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Appointment extends Model
 {
     protected $fillable = [
-    	'date',
+    	'appointment_date',
     	'user_id',
     	'appointment'
     ];
