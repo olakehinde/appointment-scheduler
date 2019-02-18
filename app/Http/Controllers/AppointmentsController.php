@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Appointment;
+use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 
 class AppointmentsController extends Controller
 {
@@ -14,8 +15,26 @@ class AppointmentsController extends Controller
      */
     public function index()
     {
-        $appointments = Appointment::all();
+        $events = [];
+        $fetch_appointments = Appointment::all();
 
+        if ($fetch_appointments->count()) {
+            foreach ($fetch_appointments as $key => $value) {
+                $events[] = Calendar::event($value->appointment,
+                    true,
+                    new \DateTime($value->appointment_date),
+                    new \DateTime($value->appointment_date),
+                    null,
+                    [
+                        'color' => '#ff0000',
+                    ]
+
+                );
+            }
+        }
+
+        $appointments = Calendar::addEvents($events);
+// dd($appointments);
         return view('appointments.index', compact('appointments'));
     }
 
