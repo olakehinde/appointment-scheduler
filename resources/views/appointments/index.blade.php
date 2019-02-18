@@ -12,9 +12,21 @@
 			</div>
 		@endif
 
-		@foreach($appointments as $appointment)
-			{{$appointment->appointment_date}}<br>
-			{{$appointment->appointment}}<br>
-		@endforeach
+		 <div class="row">
+	        <div class="col-md-8 col-md-offset-2">
+	            <div class="panel panel-default">
+	                <div class="panel-heading">Appointments</div>
+					<div class="panel-body">
+							{!! $appointments->calendar() !!}
+                	</div>
+	            </div>
+	        </div>
+	    </div>
 	</div>
+@endsection
+
+@section('script')
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
+	{!! $appointments->script() !!}
 @endsection
