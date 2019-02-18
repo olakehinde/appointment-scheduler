@@ -11,25 +11,8 @@
     <title>{{ config('app.name', 'AppointmentScheduler') }}</title>
 
     <!-- FullCallender Library Style -->
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css' />
-<!-- 
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js'></script> -->
-    <script src='http://fullcalendar.io/js/fullcalendar-2.1.1/lib/jquery.min.js'></script>
-    <!-- <script src="http://fullcalendar.io/js/fullcalendar-2.1.1/lib/jquery-ui.custom.min.js"></script> -->
-    <script src='http://fullcalendar.io/js/fullcalendar-2.1.1/lib/moment.min.js'></script>
-
-
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.1.1/fullcalendar.min.js'></script>
-    <script>
-        $(document).ready(function() {
-            // page is now ready, initialize the calendar...
-            $('#calendar').fullCalendar({
-                // put your options and callbacks here
-            })
-        });
-    </script>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
 
     <!-- Custom Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -95,7 +78,9 @@
         @yield('content')
     </div>
 
-    <!-- Scripts -->    
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    @yield('script')    
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
