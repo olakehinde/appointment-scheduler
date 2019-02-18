@@ -34,7 +34,7 @@ class AppointmentsController extends Controller
         }
 
         $appointments = Calendar::addEvents($events);
-// dd($appointments);
+        
         return view('appointments.index', compact('appointments'));
     }
 
